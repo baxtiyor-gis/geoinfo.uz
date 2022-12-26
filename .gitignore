@@ -2,6 +2,9 @@ env/
 __pycache__/
 instance/
 
+log/*
+!log/.gitkeep
+
 src/uploads/*
 !src/uploads/**/
 !src/uploads/.gitkeep
@@ -10,4 +13,5 @@ src/uploads/**/*
 !src/uploads/**/**/
 !src/uploads/**/.gitkeep
 
-
+gunicorn.py
+wsgi.py

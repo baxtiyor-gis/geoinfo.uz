@@ -6,7 +6,7 @@ import os
 DEBUG = True
 
 HOST = "0.0.0.0"
-PORT = 5000
+PORT = 5003
 
 SECRET_KEY = "secret"
 SQLALCHEMY_DATABASE_URI = "sqlite:///database.db"
