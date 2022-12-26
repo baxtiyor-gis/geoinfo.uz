@@ -1,0 +1,61 @@
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+
+<div class="all-blog-posts">
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="{{ url_for('index.home') }}">Bosh sahifa</a></li>
+      <li class="breadcrumb-item"><a href="{{ url_for('category.all_category') }}">Bo`limlar</a></li>
+      <li class="breadcrumb-item active" aria-current="page">{{category.name}}</li>
+    </ol>
+  </nav>
+
+  <div class="row">
+
+
+    {% for post in category.posts %}
+    <div class="col-lg-12">
+      <div class="blog-post">
+        <div class="blog-thumb">
+          <img
+            src="https://gisgeography.com/wp-content/uploads/2014/07/What-Is-Geographic-Information-Systems-Featured-1265x727.jpg"
+            alt="">
+        </div>
+        <div class="down-content">
+          <span>Lifestyle</span>
+          <a href="">
+            <h4>{{ post.title }}</h4>
+          </a>
+          <ul class="post-info">
+            <li><a href="#">Admin</a></li>
+            {# <li><a href="#">{{ post.date_posted.strftime('%B %d, %Y') }}</a></li> #}
+            <li><a href="#">12 Comments</a></li>
+          </ul>
+          <p>{{ post.content[:200] | striptags}}...</p>
+          <div class="post-options">
+            <div class="row">
+              <div class="col-6">
+                <ul class="post-tags">
+                  <li><i class="fa fa-tags"></i></li>
+                  <li><a href="#">Beauty</a>,</li>
+                  <li><a href="#">Nature</a></li>
+                </ul>
+              </div>
+              <div class="col-6">
+                <ul class="post-share">
+                  <li><i class="fa fa-share-alt"></i></li>
+                  <li><a href="#">Facebook</a>,</li>
+                  <li><a href="#"> Twitter</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+{% endblock %}

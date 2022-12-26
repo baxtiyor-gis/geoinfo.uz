@@ -1,0 +1,13 @@
+env/
+__pycache__/
+instance/
+
+src/uploads/*
+!src/uploads/**/
+!src/uploads/.gitkeep
+
+src/uploads/**/*
+!src/uploads/**/**/
+!src/uploads/**/.gitkeep
+
+

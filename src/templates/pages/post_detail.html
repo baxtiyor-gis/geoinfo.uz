@@ -1,0 +1,27 @@
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+
+
+<div class="blog">
+  <div class="blog-detail">
+    <div class="blog-detail-header" style="text-align: center;">
+      <h1>{{ post.title }}</h1>
+      <div class="blog-detail-info">
+        <a href="#">Baxtiyor Qahhorov</a>
+        <span>Jan 17, 2022</span>
+      </div>
+      <img src="{{ url_for('send_report', path=post.photo)}}" alt="{{ post.title }}" style="width: 100%; margin: 15px 0; padding: 0;">
+    </div>
+    <div class="blog-detail-body">
+
+      <p>{{ post.content | safe }}</p>
+
+    </div>
+
+
+  </div>
+
+</div>
+
+{% endblock %}

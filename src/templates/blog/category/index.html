@@ -1,0 +1,58 @@
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+<div class="all-blog-posts">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{{ url_for('index.home') }}">Bosh sahifa</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Bo'limlar</li>
+        </ol>
+    </nav>
+    <div class="div">
+        <a class="nav-link btn btn-success text-light mb-2" href="{{ url_for('category.category_create')}}"> <i
+                class="fa fa-plus" aria-hidden="true"></i> Bo`lim qo`shish</a>
+    </div>
+    {% for category in categories %}
+
+
+    <div class="card mb-3">
+        <div class="row g-0">
+            <div class="col-sm-5">
+                <img src="{{ url_for('send_report', path=category.photo) }}" class="card-img-top h-100" alt="...">
+            </div>
+            <div class="col-sm-7">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <a href="{{ url_for('category.category_detail', slug=category.slug) }}">
+                            {{ category.name }}
+                    </h5>
+                    </a>
+                    <p class="card-text">{{ category.description }}</p>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-6">
+                                Maqolalar: {{ category.posts | length }} ta
+                            </div>
+                            <div class="col-6">
+                                <a href="{{ url_for('category.category_edit', id=category.id) }}"
+                                    class="btn btn-primary">
+                                    <i class="fa fa-pencil" aria-hidden="true"></i>
+                                </a>
+                                <a href="{{ url_for('category.category_delete', id=category.id) }}"
+                                    class="btn btn-danger">
+                                    <i class="fa fa-trash" aria-hidden="true"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% endfor %}
+
+</div>
+{% endblock %}
