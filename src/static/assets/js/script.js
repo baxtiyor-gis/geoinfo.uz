@@ -51,3 +51,11 @@ const toggleTheme = () => {
     localStorage.setItem('theme', 'light')
   }
 }
+
+
+
+console.log(window.location.pathname);
+
+// if (window.location.pathname != "/") {
+//   document.querySelector(".hero").style.display = "none";
+// }
