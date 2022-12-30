@@ -1,61 +1,64 @@
 {% extends 'layouts/base.html' %}
 
 {% block content %}
+<div class="blog">
 
-<div class="all-blog-posts">
-  <nav aria-label="breadcrumb">
-    <ol class="breadcrumb">
-      <li class="breadcrumb-item"><a href="{{ url_for('index.home') }}">Bosh sahifa</a></li>
-      <li class="breadcrumb-item"><a href="{{ url_for('category.all_category') }}">Bo`limlar</a></li>
-      <li class="breadcrumb-item active" aria-current="page">{{category.name}}</li>
-    </ol>
-  </nav>
-
-  <div class="row">
-
-
-    {% for post in category.posts %}
-    <div class="col-lg-12">
-      <div class="blog-post">
-        <div class="blog-thumb">
-          <img
-            src="https://gisgeography.com/wp-content/uploads/2014/07/What-Is-Geographic-Information-Systems-Featured-1265x727.jpg"
-            alt="">
-        </div>
-        <div class="down-content">
-          <span>Lifestyle</span>
-          <a href="">
-            <h4>{{ post.title }}</h4>
-          </a>
-          <ul class="post-info">
-            <li><a href="#">Admin</a></li>
-            {# <li><a href="#">{{ post.date_posted.strftime('%B %d, %Y') }}</a></li> #}
-            <li><a href="#">12 Comments</a></li>
-          </ul>
-          <p>{{ post.content[:200] | striptags}}...</p>
-          <div class="post-options">
-            <div class="row">
-              <div class="col-6">
-                <ul class="post-tags">
-                  <li><i class="fa fa-tags"></i></li>
-                  <li><a href="#">Beauty</a>,</li>
-                  <li><a href="#">Nature</a></li>
-                </ul>
-              </div>
-              <div class="col-6">
-                <ul class="post-share">
-                  <li><i class="fa fa-share-alt"></i></li>
-                  <li><a href="#">Facebook</a>,</li>
-                  <li><a href="#"> Twitter</a></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+    <h2 class="h2">{{ category.name }} bo`limidagi maqolalar</h2>
+    <div>
+      <p>{{ category.description }}</p>
     </div>
-    {% endfor %}
-  </div>
-</div>
 
+    <div class="blog-card-group">
+
+        {% for post in posts %}
+
+        <div class="blog-card">
+
+            <div class="blog-card-banner">
+                <img src="{{ url_for('send_report', path=post.photo)}}"
+                    alt="Building microservices with Dropwizard, MongoDB & Docker" width="250" class="blog-banner-img">
+            </div>
+
+            <div class="blog-content-wrapper">
+
+                <button class="blog-topic text-tiny">{{ post.category.name }}</button>
+
+                <h3>
+                    <a href="{{ url_for('post.post_detail', slug=post.slug)}}" class="h3">
+                        {{ post.title }}
+                    </a>
+                </h3>
+
+                <p class="blog-text">
+                    {{ post.content[:200] | striptags}}...
+                </p>
+
+                <div class="wrapper-flex">
+
+                    <div class="profile-wrapper">
+                        <img src="{{ url_for('static', filename='assets/images/author.png') }}" alt="Julia Walker"
+                            width="50">
+                    </div>
+
+                    <div class="wrapper">
+                        <a href="#" class="h4">Baxtiyor Qahhorov</a>
+
+                        <p class="text-sm">
+                            <time datetime="2022-01-17">DEC 26, 2022</time>
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+    <button class="btn load-more">Barchasini ko'rish</button>
+
+</div>
 {% endblock %}

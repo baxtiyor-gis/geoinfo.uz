@@ -13,7 +13,7 @@ navMenuBtn.addEventListener('click', navToggleFunc);
 navCloseBtn.addEventListener('click', navToggleFunc);
 
 let theme = localStorage.getItem('theme')
-if (! theme) {
+if (!theme) {
   localStorage.setItem('theme', 'light')
 }
 
@@ -52,10 +52,3 @@ const toggleTheme = () => {
   }
 }
 
-
-
-console.log(window.location.pathname);
-
-// if (window.location.pathname != "/") {
-//   document.querySelector(".hero").style.display = "none";
-// }
