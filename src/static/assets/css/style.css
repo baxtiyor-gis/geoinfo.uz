@@ -1,14 +1,3 @@
-/*-----------------------------------*\ 
-  #style.css
-\*-----------------------------------*/
-
-/**
- * copyright 2022 @codewithsadee 
- */
-
-
-
-
 
 /*-----------------------------------*\ 
   #CUSTOM PROPERTY
@@ -459,7 +448,8 @@ header .btn-group {
 }
 
 
-.blog-detail {
+.blog-detail, .blog-detail a {
+  color: var(--foreground-primary);
   background: var(--background-primary);
   margin-bottom: 2rem;
   border-radius: 10px;
@@ -467,9 +457,12 @@ header .btn-group {
   transition: 0.25s ease;
 }
 
+
+
 .blog-detail-body {
   padding: 10px;
   margin-bottom: 1rem;
+  background: var(--background-primary);
 }
 
 .blog-card-group {

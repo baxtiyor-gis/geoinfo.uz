@@ -29,54 +29,54 @@ def category_detail(slug):
     return render_template("blog/category/category_detail.html", category=category)
 
 
-@category_bp.route("/create", methods=['GET', 'POST'])
-def category_create():
-    form = CategoryForm()
-    if form.validate_on_submit():
-        name = form.name.data
-        photo = form.photo.data
-        description = form.description.data
-        new_category = Category(name=name, description=description)
-        new_category.set_photo(photo)
-        new_category.save()
-        return redirect(url_for('category.all_category'))
-    else:
-        print(form.errors)
-    return render_template("blog/category/create.html", form=form)
+# @category_bp.route("/create", methods=['GET', 'POST'])
+# def category_create():
+#     form = CategoryForm()
+#     if form.validate_on_submit():
+#         name = form.name.data
+#         photo = form.photo.data
+#         description = form.description.data
+#         new_category = Category(name=name, description=description)
+#         new_category.set_photo(photo)
+#         new_category.save()
+#         return redirect(url_for('category.all_category'))
+#     else:
+#         print(form.errors)
+#     return render_template("blog/category/create.html", form=form)
 
 
-@category_bp.route("/edit/<int:id>", methods=['GET', 'POST'])
-def category_edit(id):
+# @category_bp.route("/edit/<int:id>", methods=['GET', 'POST'])
+# def category_edit(id):
 
-    cat = Category.query.get_or_404(id)
-    if request.method == "GET":
-        form = CategoryForm(obj=cat)
-        form.photo.data = None
-        print(cat.format())
-    else:
-        form = CategoryForm(request.form)
-        form.photo.data = request.files.get('photo')
-        print(request.files)
-        if form.validate_on_submit():
-            cat.name = form.name.data
-            cat.name = form.name.data
-            cat.photo = form.photo.data
-            cat.description = form.description.data
-            if form.photo.data:
-                cat.set_photo(form.photo.data)
-            cat.save()
-            return redirect(url_for('category.all_category'))
-        else:
-            print(form.errors)
-    return render_template("blog/category/edit.html", form=form)
+#     cat = Category.query.get_or_404(id)
+#     if request.method == "GET":
+#         form = CategoryForm(obj=cat)
+#         form.photo.data = None
+#         print(cat.format())
+#     else:
+#         form = CategoryForm(request.form)
+#         form.photo.data = request.files.get('photo')
+#         print(request.files)
+#         if form.validate_on_submit():
+#             cat.name = form.name.data
+#             cat.name = form.name.data
+#             cat.photo = form.photo.data
+#             cat.description = form.description.data
+#             if form.photo.data:
+#                 cat.set_photo(form.photo.data)
+#             cat.save()
+#             return redirect(url_for('category.all_category'))
+#         else:
+#             print(form.errors)
+#     return render_template("blog/category/edit.html", form=form)
 
 
-@category_bp.route("/delete/<int:id>")
-def category_delete(id):
-    cat = Category.query.get_or_404(id)
-    cat.delete()
-    flash(f"{cat.name} o`chirildi")
-    return redirect(url_for('category.all_category'))
+# @category_bp.route("/delete/<int:id>")
+# def category_delete(id):
+#     cat = Category.query.get_or_404(id)
+#     cat.delete()
+#     flash(f"{cat.name} o`chirildi")
+#     return redirect(url_for('category.all_category'))
 
 
 @post_bp.route("/<slug>")
@@ -96,20 +96,20 @@ def post_detail(slug):
     return render_template("pages/post_detail.html", post=post)
 
 
-@post_bp.route("/create", methods=['GET', 'POST'])
-def post_create():
-    form = PostForm()
-    form.category.choices = [(str(category.id), category.name)
-                             for category in Category.query.all()]
-    if form.validate_on_submit():
-        title = form.title.data
-        content = form.content.data
-        category_id = form.category.data
-        photo = form.photo.data
-        new_post = Post(title=title, content=content, category_id=category_id)
-        new_post.set_photo(photo)
-        new_post.save()
-        return redirect(url_for('index.home'))
-    else:
-        print(form.errors)
-    return render_template("blog/create.html", form=form)
+# @post_bp.route("/create", methods=['GET', 'POST'])
+# def post_create():
+#     form = PostForm()
+#     form.category.choices = [(str(category.id), category.name)
+#                              for category in Category.query.all()]
+#     if form.validate_on_submit():
+#         title = form.title.data
+#         content = form.content.data
+#         category_id = form.category.data
+#         photo = form.photo.data
+#         new_post = Post(title=title, content=content, category_id=category_id)
+#         new_post.set_photo(photo)
+#         new_post.save()
+#         return redirect(url_for('index.home'))
+#     else:
+#         print(form.errors)
+#     return render_template("blog/create.html", form=form)

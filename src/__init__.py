@@ -1,5 +1,5 @@
 import os
-from flask import Flask, request, send_from_directory, url_for
+from flask import Flask, request, send_from_directory, url_for, send_file
 from flask_sqlalchemy import SQLAlchemy
 from flask_ckeditor import CKEditor
 from flask_ckeditor import upload_success, upload_fail
@@ -30,10 +30,14 @@ def create_app():
 
 
     # Category va Post uchun
+
     @app.route('/uploads/<path:path>')
     def send_report(path):
         return send_from_directory('uploads', path)
 
+    @app.route('/robots.txt')
+    def robots():
+        return send_file('robots.txt')
 
 
 
