@@ -10,7 +10,7 @@ content="Geografik axborot tizimlari (GIS) haqida ma`lumot beruvchi ilk o'zbekch
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://geoinfo.uz" />
 <meta property="og:image"
-content="{{ request.url }}uploads/geoinfo.uz.PNG" />
+content="{{ request.url }}uploads/geoinfo.uz.jpg" />
 <meta property="og:description"
 content="Geografik axborot tizimlari (GIS) haqida ma`lumot beruvchi ilk o'zbekcha sayt. Ushbu saytda GIS, Arcgis, QGIS bo`yicha maqolalarni topishingiz mumkin" />
 <meta property="og:site_name" content="Geoinfo.Uz" />
@@ -46,21 +46,21 @@ content="Geografik axborot tizimlari (GIS) haqida ma`lumot beruvchi ilk o'zbekch
                 </h3>
 
                 <p class="blog-text">
-                    {{ post.content[:200] | striptags}}...
+                    {{ post.content|striptags|truncate(100)}}...
                 </p>
 
                 <div class="wrapper-flex">
-
+<!-- 
                     <div class="profile-wrapper">
                         <img src="{{ url_for('static', filename='assets/images/author.png') }}" alt="Julia Walker"
                             width="50">
-                    </div>
+                    </div> -->
 
                     <div class="wrapper">
-                        <a href="#" class="h4">Baxtiyor Qahhorov</a>
-
                         <p class="text-sm">
-                            <time datetime="2022-01-17">DEC 26, 2022</time>
+                            <i class="fas fa-user-tie"></i> <a href="#" class="h4">Baxtiyor Qahhorov</a>
+
+                            <i class="fas fa-clock"></i> <time datetime="2022-01-17">DEC 26, 2022</time> <i class="fas fa-eye"></i> 25
                         </p>
                     </div>
 

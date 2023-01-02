@@ -50,6 +50,9 @@ class Post(db.Model):
     title = db.Column(db.String(255))
     content = db.Column(db.Text)
     photo = db.Column(db.String(255))
+
+    # Active, Deleted, Not Active
+    status = db.Column(db.String(255), default="Not Active", nullable=True)
     category_id = db.Column(db.Integer, db.ForeignKey(
         'category.id', ondelete="CASCADE"))
 

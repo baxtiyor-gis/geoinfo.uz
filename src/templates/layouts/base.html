@@ -8,13 +8,14 @@
 
     {% block meta %}
     {% endblock %}
-   
+
 
 
     <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/style.css') }}">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
 
@@ -390,29 +391,24 @@
                         src="https://cnt0.www.uz/counter/collect?id=46875&pg=http%3A//uzinfocom.uz&&col=133E43&amp;t=ffffff&amp;p=E6850F"
                         width=88 border=0 alt="Топ рейтинг www.uz"></A></NOSCRIPT><!-- FINISH WWW.UZ TOP-RATING -->
 
-
-            <!-- Yandex.Metrika counter -->
+            <!-- Top.Mail.Ru counter -->
             <script type="text/javascript">
-                    (function (m, e, t, r, i, k, a) {
-                        m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments) };
-                        m[i].l = 1 * new Date();
-                        for (var j = 0; j < document.scripts.length; j++) { if (document.scripts[j].src === r) { return; } }
-                        k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
-                    })
-                    (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
-
-                ym(91867789, "init", {
-                    clickmap: true,
-                    trackLinks: true,
-                    accurateTrackBounce: true
-                });
+                var _tmr = window._tmr || (window._tmr = []);
+                _tmr.push({ id: "3278651", type: "pageView", start: (new Date()).getTime() });
+                (function (d, w, id) {
+                    if (d.getElementById(id)) return;
+                    var ts = d.createElement("script"); ts.type = "text/javascript"; ts.async = true; ts.id = id;
+                    ts.src = "https://top-fwz1.mail.ru/js/code.js";
+                    var f = function () { var s = d.getElementsByTagName("script")[0]; s.parentNode.insertBefore(ts, s); };
+                    if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); }
+                })(document, window, "tmr-code");
             </script>
+            <noscript>
+                <div><img src="https://top-fwz1.mail.ru/counter?id=3278651;js=na"
+                        style="position:absolute;left:-9999px;" alt="Top.Mail.Ru" /></div>
+            </noscript>
+            <!-- /Top.Mail.Ru counter -->
 
-        <div><img src="https://mc.yandex.ru/watch/91867789" style="position:absolute; left:-9999px;" alt="" />
-        </div>
-
-        <!-- /Yandex.Metrika counter -->
-        </p>
 
     </footer>
 

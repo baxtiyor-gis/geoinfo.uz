@@ -497,7 +497,7 @@ header .btn-group {
   font-weight: 600;
   padding: 0.25rem 1rem;
   border-radius: 5px;
-  margin-bottom: 1rem;
+  margin-bottom: 0.3rem;
 }
 
 .blog-topic:hover {
@@ -507,7 +507,7 @@ header .btn-group {
 
 .blog-card .h3 {
   line-height: 1.4;
-  margin-bottom: 1rem;
+  margin-bottom: 0.3rem;
 }
 
 .blog-card .h3:hover {
@@ -773,7 +773,7 @@ footer .wrapper {
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
-    margin-bottom: 1rem;
+    margin-bottom: 0.3rem;
   }
 
   .blog .wrapper-flex {

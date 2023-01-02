@@ -4,11 +4,14 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_ckeditor import CKEditor
 from flask_ckeditor import upload_success, upload_fail
 from flask_wtf.csrf import CSRFProtect
+from flask_admin import Admin
+from flask_admin.contrib.sqla import ModelView
 
 
 db = SQLAlchemy()
 ckeditor = CKEditor()
 csrf = CSRFProtect()
+admin = Admin()
 
 def create_app():
     app = Flask(__name__)
@@ -17,17 +20,15 @@ def create_app():
     db.init_app(app)
     ckeditor.init_app(app)
     csrf.init_app(app)
+    admin.init_app(app)
+
+
 
     from .routes import index, blog
 
     app.register_blueprint(index.bp, url_prefix="/")
-    
     app.register_blueprint(blog.category_bp)
     app.register_blueprint(blog.post_bp)
-
-    app.register_blueprint(blog.category_api)
-    app.register_blueprint(blog.post_api)
-
 
 
     # Category va Post uchun
@@ -61,7 +62,10 @@ def create_app():
         url = url_for('uploaded_files', filename=f.filename)
         return upload_success(url, filename=f.filename)
 
-    
+    # from src.models.blog import Category, Post
+    # admin.add_view(ModelView(Category, db.session))
+    # admin.add_view(ModelView(Post, db.session))
+
     with app.app_context():
         db.create_all()
   
