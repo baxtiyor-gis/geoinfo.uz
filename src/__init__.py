@@ -5,6 +5,7 @@ from flask_ckeditor import CKEditor
 from flask_ckeditor import upload_success, upload_fail
 from flask_wtf.csrf import CSRFProtect
 
+
 db = SQLAlchemy()
 ckeditor = CKEditor()
 csrf = CSRFProtect()
@@ -60,6 +61,7 @@ def create_app():
         url = url_for('uploaded_files', filename=f.filename)
         return upload_success(url, filename=f.filename)
 
+    
     with app.app_context():
         db.create_all()
   

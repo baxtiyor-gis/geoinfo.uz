@@ -6,25 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="keywords"
-        content="gis,gat,arcgis,qgis,o`zbekcha,darslar,geografik axborot tizimlari,web kartalar,kartografiya">
-    <meta name="description"
-        content="Geografik axborot tizimlari (GIS) haqida ma`lumot beruvchi ilk o'zbekcha sayt. Ushbu saytda GIS, Arcgis, QGIS bo`yicha maqolalarni topishingiz mumkin">
-
-    <meta property="og:title" content="GeoInfo.Uz - GIS bo`yicha qo'llanma" />
-    <meta property="og:type" content="article" />
-    <meta property="og:url" content="http://geoinfo.uz" />
-    <meta property="og:image"
-        content="https://s3.amazonaws.com/creativetim_bucket/products/450/original/material-dashboard.jpg" />
-    <meta property="og:description"
-        content="Geografik axborot tizimlari (GIS) haqida ma`lumot beruvchi ilk o'zbekcha sayt. Ushbu saytda GIS, Arcgis, QGIS bo`yicha maqolalarni topishingiz mumkin" />
-    <meta property="og:site_name" content="Geoinfo.Uz" />
-
-
-
-
-
-    <title>GeoInfo - GIS bo`yicha qo'llanma</title>
+    {% block meta %}
+    {% endblock %}
+   
 
 
     <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/style.css') }}">

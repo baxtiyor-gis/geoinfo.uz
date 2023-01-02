@@ -1,5 +1,24 @@
 {% extends 'layouts/base.html' %}
 
+{% block meta %}
+<meta name="keywords"
+content="gis,gat,arcgis,qgis,o`zbekcha,darslar,geografik axborot tizimlari,web kartalar,kartografiya, gis haqida, gisni o'raganamiz, arcgis qgis darslari">
+<meta name="description"
+content="{{ category.description }}" />
+
+<meta property="og:title" content="{{ category.name }} | GeoInfo.Uz" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://geoinfo.uz/category/{{category.slug}}" />
+<meta property="og:image"
+content="https://geoinfo.uz/uploads/{{category.photo}}" />
+<meta property="og:description"
+content="{{ category.description }}" />
+<meta property="og:site_name" content="Geoinfo.Uz" />
+<title>{{ category.name }} | GeoInfo.Uz</title>
+{% endblock %}
+
+
+
 {% block content %}
 <div class="blog">
 
